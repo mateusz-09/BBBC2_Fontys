@@ -4,17 +4,17 @@ public class Person {
 
     private Double Temperature;
 
-    private Double BloodAlcoholLevel;
+    private Double BloodAlcohol;
 
     public Person(String name) {
-        this.Name = name;
+
     }
 
     public String getName() {
         return Name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         Name = name;
     }
 
@@ -22,21 +22,23 @@ public class Person {
         return Temperature;
     }
 
-    public void setTemperature(Double temperature) {
+    private void setTemperature(Double temperature) {
         Temperature = temperature;
     }
 
-    public Double getBloodAlcoholLevel() {
-        return BloodAlcoholLevel;
+    public Double getBloodAlcohol() {
+        return BloodAlcohol;
     }
 
-    public void setBloodAlcoholLevel(Double bloodAlcoholLevel) {
-        BloodAlcoholLevel = bloodAlcoholLevel;
+    private void setBloodAlcohol(Double bloodAlcohol) {
+        BloodAlcohol = bloodAlcohol;
     }
 
-    protected Boolean IsAllowedToEnter() {
-        return this.Temperature <= 38.0 && this.BloodAlcoholLevel <= 0.5;
+    public Boolean checkHealth() {
+        return true;
     }
 
+    public void takeBodyMeasurements(Double temp, Double bloodAction) {
+
+    }
 }
-

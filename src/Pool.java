@@ -3,17 +3,31 @@ import java.util.List;
 
 public class Pool {
 
+    private String Name;
+
     private int Id;
 
     private int Capacity;
 
     private List<Guest> Guests = new ArrayList<Guest>();
 
+    public Pool(int id, String name, int capacity) {
+
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    private void setName(String name) {
+        Name = name;
+    }
+
     public int getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         Id = id;
     }
 
@@ -21,7 +35,7 @@ public class Pool {
         return Capacity;
     }
 
-    public void setCapacity(int capacity) {
+    private void setCapacity(int capacity) {
         Capacity = capacity;
     }
 
@@ -29,12 +43,12 @@ public class Pool {
         return Guests;
     }
 
-    public void setGuests(List<Guest> guests) {
-        Guests = guests;
+    public Boolean isAllowedToEnter(Guest guest) {
+        return true;
     }
 
-    public void Save() {
-        // This function will save this object to a txt file.
+    public void checkInGuest(Guest guest) {
+
     }
 
 }
