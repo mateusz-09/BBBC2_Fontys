@@ -1,26 +1,23 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Complex {
+    private ArrayList<Pool> pools;
+    private ArrayList<Guest> guests ;
 
-    private List<Pool> Pools = new ArrayList<Pool>();
-
-    private List<Guest> Guests = new ArrayList<Guest>();
-
-    public List<Pool> getPools() {
-        return Pools;
+    public Complex(Pool pools) {
+        this.pools = new ArrayList<>();
     }
 
-    public List<Guest> getGuests() {
-        return Guests;
+    public ArrayList<Pool> getPools() {
+        return this.pools;
     }
 
-    public void addGuest(String Name) {
-
+    public ArrayList<Guest> getGuests() {
+        return this.guests;
     }
 
-    public void addPool(int id, String name, int capacity) {
-
+    public void addPool(Pool pool) {
+        this.pools.add(pool);
     }
 
 }

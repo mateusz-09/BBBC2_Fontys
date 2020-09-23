@@ -2,53 +2,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pool {
+    private int id;
+    private String name;
+    private int capacity;
+    private ArrayList<Guest> guests;
 
-    private String Name;
-
-    private int Id;
-
-    private int Capacity;
-
-    private List<Guest> Guests = new ArrayList<Guest>();
-
+    // Constructor
     public Pool(int id, String name, int capacity) {
-
+        this.id = id;
+        this.name = name;
+        this.capacity = capacity;
+        this.guests = new ArrayList<>();
     }
 
     public String getName() {
-        return Name;
+        return this.name;
     }
 
     private void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getId() {
-        return Id;
+        return this.id;
     }
 
     private void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public int getCapacity() {
-        return Capacity;
+        return this.capacity;
     }
 
     private void setCapacity(int capacity) {
-        Capacity = capacity;
+        this.capacity = capacity;
     }
 
-    public List<Guest> getGuests() {
-        return Guests;
+    public ArrayList<Guest> getGuests() {
+        return this.guests;
     }
 
     public Boolean isAllowedToEnter(Guest guest) {
+        if(guest.getBloodAlcohol() > 0.5 || guest.getTemperature() > 38.0) {
+            return false;
+        }
         return true;
     }
 
-    public void checkInGuest(Guest guest) {
-
+    public boolean checkInGuest(Guest guest) {
+        int totalGuests = 0;
+        for (Guest guestWhoWantsToSwim : this.guests){
+            totalGuests += 1;
+        }
+        if (totalGuests > this.capacity){
+            return false;
+        }
+        guests.add(guest);
+        return true;
     }
 
 }
