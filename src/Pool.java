@@ -12,7 +12,9 @@ public class Pool {
     private List<Guest> Guests = new ArrayList<Guest>();
 
     public Pool(int id, String name, int capacity) {
-
+        setId(id);
+        setName(name);
+        setCapacity(capacity);
     }
 
     public String getName() {
@@ -44,11 +46,19 @@ public class Pool {
     }
 
     public Boolean isAllowedToEnter(Guest guest) {
+        if (getGuests().size() >= getCapacity()) {
+            return false;
+        }
+
+        if (!guest.checkHealth()) {
+            return false;
+        }
+
         return true;
     }
 
     public void checkInGuest(Guest guest) {
-
+        this.Guests.add(guest);
     }
 
 }

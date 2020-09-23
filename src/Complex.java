@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Complex {
 
@@ -15,12 +16,18 @@ public class Complex {
         return Guests;
     }
 
-    public void addGuest(String Name) {
-
+    public void addGuest(String name) {
+        this.Guests.add(new Guest(name));
     }
 
     public void addPool(int id, String name, int capacity) {
+        if (isPoolAdded(id)) return;
 
+        this.Pools.add(new Pool(id, name, capacity));
+    }
+
+    public boolean isPoolAdded(int id) {
+        return this.getPools().stream().filter(p -> Objects.equals(p.getId(), id)).count() > 0;
     }
 
 }
