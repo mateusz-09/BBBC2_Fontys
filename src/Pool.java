@@ -45,6 +45,11 @@ public class Pool {
         return Guests;
     }
 
+    /**
+     * isAllowedToEnter Checks if the guest can enter the pool
+     * @param guest
+     * @return boolean
+     */
     public Boolean isAllowedToEnter(Guest guest) {
         if (getGuests().size() >= getCapacity()) {
             return false;

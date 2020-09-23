@@ -40,6 +40,10 @@ public class Person {
         BloodAlcohol = bloodAlcohol;
     }
 
+    /**
+     * checkHealth checks if the person's temperature and blood alcohol levels are ok to enter the pool
+     * @return boolean
+     */
     public Boolean checkHealth() {
         return getTemperature() <= 38.0 && getBloodAlcohol() <= 0.5;
     }
