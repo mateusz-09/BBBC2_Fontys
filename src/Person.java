@@ -1,44 +1,50 @@
 public class Person {
 
-    private String Name;
+    private String name;
+    private double temperature;
+    private double bloodAlcohol;
 
-    private Double Temperature;
-
-    private Double BloodAlcohol;
-
-    public Person(String name) {
-
+    public Person(String name, double temperature, double bloodAlcohol) {
+        this.name = name;
+        this.temperature = temperature;
+        this.bloodAlcohol = bloodAlcohol;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    private void setName(String name) {
-        Name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getTemperature() {
-        return Temperature;
+    public double getTemperature() {
+        return temperature;
     }
 
-    private void setTemperature(Double temperature) {
-        Temperature = temperature;
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
     }
 
-    public Double getBloodAlcohol() {
-        return BloodAlcohol;
+    public double getBloodAlcohol() {
+        return bloodAlcohol;
     }
 
-    private void setBloodAlcohol(Double bloodAlcohol) {
-        BloodAlcohol = bloodAlcohol;
+    public void setBloodAlcohol(double bloodAlcohol) {
+        this.bloodAlcohol = bloodAlcohol;
     }
 
-    public Boolean checkHealth() {
+    public boolean isHealthy(){
+        double bloodAlcohol = this.bloodAlcohol;
+        double temperature = this.temperature;
+        if(bloodAlcohol  <= 0.5 || temperature < 38){
+            return false;
+        }
         return true;
     }
 
-    public void takeBodyMeasurements(Double temp, Double bloodAction) {
-
+    public void takeBodyMeasurements(double temperature, double bloodAlcohol){
+        this.bloodAlcohol = bloodAlcohol;
+        this.temperature = temperature;
     }
 }
